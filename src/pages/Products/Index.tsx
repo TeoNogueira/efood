@@ -6,6 +6,8 @@ import Pizza from '../../assets/images/pizza.png'
 
 
 import Cart from '../../models/Cart'
+import HeaderProducts from '../../components/HeaderProducts/Index'
+import Banner from '../../components/Banner/Index'
 
 const itemsCart: Cart[] = [
     {
@@ -52,12 +54,12 @@ const Products = () => {
 
     return(
 
-        <div>
             <>
-
+            <HeaderProducts />
+            <Banner />
             <Footer />
             </>
-        </div>
+ 
     )
 }
 

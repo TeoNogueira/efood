@@ -43,7 +43,7 @@ export const InfoContainer = styled.div`
 
         p {
 
-                margin-bottom: 32px;
+                margin-bottom: 36px;
                 line-height: 22px;
         }
 `

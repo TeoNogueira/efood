@@ -5,6 +5,7 @@ type Props = {
 }
 
 const Tag = ({ children }: Props) => {
+    
     return <TagCont>{children}</TagCont> 
 }
 
