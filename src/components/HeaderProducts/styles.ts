@@ -5,7 +5,7 @@ import bgProduct from '../../assets/images/bg-header.png'
 import { colors } from '../../styles'
 
 export const Container = styled.div`
-        padding: 36px 0 38px;
+        padding: 40px 0 64px;
         background-image: url(${bgProduct});
         
 `
@@ -16,11 +16,10 @@ export const DeepCont = styled.div`
         align-items: center;
         font-size: 18px;
         font-weight: 900;
-        
 `
 
 export const LinkHeader = styled.a`
-        margin: 0 60px 0 0;
+        margin-right: 80px;
         text-decoration: none;
         color: ${colors.rDark};
 `

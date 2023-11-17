@@ -29,13 +29,9 @@ export const Container = styled.section`
 
         ${TagCont} {
 
-                margin-left: 12px;
+                margin-left: 16px;
         }
 
-`
-
-export const Star = styled.img`
-      
 `
 
 export const InfoContainer = styled.div`
@@ -43,7 +39,7 @@ export const InfoContainer = styled.div`
 
         p {
 
-                margin-bottom: 36px;
+                margin-bottom: 32px;
                 line-height: 22px;
         }
 `

@@ -8,6 +8,7 @@ import Pizza from '../../assets/images/pizza.png'
 import Cart from '../../models/Cart'
 import HeaderProducts from '../../components/HeaderProducts/Index'
 import Banner from '../../components/Banner/Index'
+import FoodCartList from '../../components/FoodCartList/Index'
 
 const itemsCart: Cart[] = [
     {
@@ -57,6 +58,7 @@ const Products = () => {
             <>
             <HeaderProducts />
             <Banner />
+            <FoodCartList foodCartArray={itemsCart}/>
             <Footer />
             </>
  

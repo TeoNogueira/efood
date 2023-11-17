@@ -5,9 +5,11 @@ import { colors } from '../../styles'
 
 export const Container = styled.div`
     background-color: ${colors.rLight};
-    margin: 120px 0 0 0;
+    margin-top: 120px;
     padding: 40px;
     text-align: center;
+
+    
 `
 
 export const TextSmall = styled.p`

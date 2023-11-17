@@ -3,6 +3,7 @@ import {Container, List} from './styles'
 import Efood from '../../models/Efood'
 import FoodInit from '../FoodInit/Index'
 
+
 type Props = {
     foodClass: Efood[]
 }
