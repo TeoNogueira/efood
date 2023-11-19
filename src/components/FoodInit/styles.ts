@@ -6,7 +6,7 @@ import { TagCont } from '../Tag/styles';
 
 
 export const Container = styled.section`
-        width: 480px;
+        width: 472px;
         background-color: transparent;
         border: 1px solid ${colors.rDark};
         position: relative;
@@ -14,17 +14,16 @@ export const Container = styled.section`
 
         > img {
                 width: 100%;
-                height: 240px;
+                height: 217px;
                 max-height: 100%;     
         }
 
 
         ${ButtonLink} {
-
-                position: absolute;
-                left: 8px;
-                bottom: 8px;
+                position: relative;
+                top: 2px;
                 text-decoration: none;
+                
         }
 
         ${TagCont} {
@@ -36,11 +35,14 @@ export const Container = styled.section`
 
 export const InfoContainer = styled.div`
         padding: 8px;
+        margin-bottom: 4px;
 
         p {
-
-                margin-bottom: 32px;
                 line-height: 22px;
+                width: 456px;
+                font-size: 14px;
+                font-weight: 400;
+                padding-bottom: 16px;
         }
 `
 

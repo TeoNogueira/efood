@@ -7,7 +7,11 @@ import { colors } from '../../styles'
 export const ButtonLink = styled(Link)`
     background-color: ${colors.rDark};
     cursor: pointer;
-    padding: 4px; 6px;
-    font-weight: bold;
+    padding: 4px 8px;
+    font-weight: 700;
     color: ${colors.rLight};
+    font-size: 14px;
+
+
+
 `
