@@ -2,7 +2,6 @@ import {Container, Content} from './styles'
 import FoodInit from '../FoodCart/Index'
 import Cart from '../../models/Cart'
 
-
 type Props = {
 
     foodCartArray: Cart[]

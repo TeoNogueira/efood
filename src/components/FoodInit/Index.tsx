@@ -1,4 +1,4 @@
-import Link from '../Link/Index'
+// import Link from '../Link/Index'
 import Tag from '../Tag/Index'
 
 
@@ -11,6 +11,7 @@ import {
    } from './styles'
 
    import ImgStar from '../../assets/images/icones/star.png'
+import { ButtonLink } from '../Link/styles'
 
 type Props = {
     id: number
@@ -46,7 +47,7 @@ const FoodInit = ({
                     </RankContainer>
                 </TitleContent>
                 <p>{description}</p>
-                <Link />
+                <ButtonLink to={`products/${id}`} > Saiba Mais </ButtonLink>
             </InfoContainer>
         </Container>
     )

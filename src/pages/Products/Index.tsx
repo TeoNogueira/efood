@@ -1,64 +1,39 @@
 import Footer from '../../components/Footer/Index'
 
-// import Sushi from '../../assets/images/sushi.png'
-// import Spaghetti from '../../assets/images/macarrao.png'
-import Pizza from '../../assets/images/pizza.png'
+import { useParams } from 'react-router-dom'
 
-
-import Cart from '../../models/Cart'
 import HeaderProducts from '../../components/HeaderProducts/Index'
 import Banner from '../../components/Banner/Index'
 import FoodCartList from '../../components/FoodCartList/Index'
 
-const itemsCart: Cart[] = [
-    {
-        id: 1,
-        image: `${Pizza}`,
-        title: 'Pizza Marguerita',
-        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-        id: 2,
-        image: `${Pizza}`,
-        title: 'Pizza Marguerita',
-        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-        id: 3,
-        image: `${Pizza}`,
-        title: 'Pizza Marguerita',
-        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-        id: 4,
-        image: `${Pizza}`,
-        title: 'Pizza Marguerita',
-        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-        id: 5,
-        image: `${Pizza}`,
-        title: 'Pizza Marguerita',
-        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-        id: 6,
-        image: `${Pizza}`,
-        title: 'Pizza Marguerita',
-        description: 'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
+import { FoodItems } from '../Home/Index'
+import { useEffect, useState } from 'react'
 
 
-]
 
 const Products = () => {
 
-    return(
+    const { id } = useParams()
+    const [menu, setMenu] = useState<FoodItems>()
+
+    useEffect(() => {
+        fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+        .then((res) => res.json())
+        .then((res) => setMenu(res))
+
+    }, [id])
+
+    if (!menu) {
+
+        return <h3>Carregando...</h3>
+    }
+
+    return (
 
             <>
             <HeaderProducts />
             <Banner />
-            <FoodCartList foodCartArray={itemsCart}/>
+            <FoodCartList foodCartArray={setMenu}/>
             <Footer />
             </>
  
