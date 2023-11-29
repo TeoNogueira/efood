@@ -32,8 +32,23 @@ const Products = () => {
 
             <>
             <HeaderProducts />
-            <Banner />
-            <FoodCartList foodCartArray={setMenu}/>
+            <Banner 
+            bannerEfood={{
+                
+                id: menu.id,
+                titulo: menu.titulo,
+                destacado: menu.destacado,
+                capa: menu.capa,
+                tipo: menu.tipo,
+                avaliacao: menu.avaliacao,
+                descricao: menu.descricao,
+                cardapio: []
+
+
+            }}
+            
+            />
+            <FoodCartList items={menu.cardapio} />
             <Footer />
             </>
  

@@ -1,12 +1,19 @@
+import { FoodItems } from '../../pages/Home/Index'
 import {Container, DeepCont, TextBanner} from './styles'
 
-const Banner = () => {
+type Props = {
+
+    bannerEfood: FoodItems
+}
+
+
+const Banner = ({ bannerEfood }: Props) => {
 
     return(
-        <Container>
+        <Container style={{backgroundImage: `url(${bannerEfood.capa})` }}>
             <DeepCont className="container">
-                <span>Italiana</span>
-                <TextBanner>La Dolce Vita Trattoria</TextBanner>
+                <span>{bannerEfood.tipo}</span>
+                <TextBanner>{bannerEfood.titulo}</TextBanner>
             </DeepCont>
         </Container>
     )
