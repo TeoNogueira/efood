@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { colors, breakpoints } from '../../styles'
 
 
 
@@ -28,6 +28,22 @@ export const Container = styled.ul`
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 40px;
         row-gap: 32px;
+
+        
+    @media (max-width: ${breakpoints.desktop}) {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+         
+    @media (max-width: ${breakpoints.tablet}) {
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+        
 
         li {
                 background-color: ${colors.rDark};
@@ -80,6 +96,12 @@ export const Content = styled.div`
       
         p, span {
                 font-size: 14px;
+
+                     
+    @media (max-width: ${breakpoints.desktop}) {
+                text-align: center;
+
+    }
         }
 
         span {
@@ -91,12 +113,29 @@ export const Content = styled.div`
                 font-weight: 900;
                 font-size: 18px;
                 margin-bottom: 16px;
+
+                     
+    @media (max-width: ${breakpoints.tablet}) {
+
+        text-align: center;
+        font-size: 15.8px;
+
+    }
+
         }
 
 
         ${Button} {
                 position: relative;
                 margin: 0 auto;
+
+                     
+    @media (max-width: ${breakpoints.tablet}) {
+
+        width: 100%;
+        max-width: 100%;
+
+    }
         }
 
 `
@@ -119,6 +158,14 @@ export const ModalCont = styled.div`
         color: ${colors.white};
         background-color: ${colors.rDark};
         gap: 24px;
+
+             
+    @media (max-width: ${breakpoints.tablet}) {
+
+                flex-direction: column;
+                align-items: center;
+
+    }
 
         > div {
                 img {
@@ -156,6 +203,8 @@ export const Modal = styled.div`
                 width: 100%;
                 height: 100%;
                 background-color: rgba(0, 0, 0, 0.70);
+                opacity: 0.8;
+                
         }
 
 

@@ -1,9 +1,9 @@
-import { FoodItems } from '../../pages/Home/Index'
+import { FoodInfos } from '../../pages/Home/Index'
 import {Container, DeepCont, TextBanner} from './styles'
 
 type Props = {
 
-    bannerEfood: FoodItems
+    bannerEfood: FoodInfos
 }
 
 

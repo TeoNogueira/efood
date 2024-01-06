@@ -6,7 +6,8 @@ import { TagCont } from '../Tag/styles';
 
 
 export const Container = styled.section`
-        width: 472px;
+        width: 100%;
+        max-width: 472px;
         background-color: transparent;
         border: 1px solid ${colors.rDark};
         position: relative;

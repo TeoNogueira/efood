@@ -1,8 +1,10 @@
 import { useState } from 'react'
-
 import buttonClose from '../../assets/images/close.png'
-
 import { MenuItems } from '../../pages/Home/Index'
+
+import { useDispatch } from 'react-redux'
+
+import { add, open} from '../../store/reducers/cart'
 
 
 import {
@@ -14,7 +16,6 @@ import {
         Button,
         InfoCont,
         ImgCloseButton,
-
     
     } from './styles'
 
@@ -28,7 +29,17 @@ type Props = {
     items: MenuItems[]
 }
 
+export const formatBRL = (preco = 0) => {
+
+    return new Intl.NumberFormat('pt-BR', {
+
+        style: 'currency',
+        currency: 'BRL',
+    }).format(preco)
+}
+
 const FoodCartList = ({ items }: Props) => {
+    const dispatch = useDispatch()
 
     const [modal, setModal] = useState<modalBoolean>({
 
@@ -42,6 +53,12 @@ const FoodCartList = ({ items }: Props) => {
 
     })
 
+    const AddToCart = (item: MenuItems) => {
+
+        dispatch(add(item))
+        dispatch(open())
+    }
+
     const controllerDesc = (descricao: string) => {
 
             if( descricao.length > 100) {
@@ -52,14 +69,7 @@ const FoodCartList = ({ items }: Props) => {
             return descricao
     }
 
-    const formatBRL = (preco = 0) => {
-
-        return new Intl.NumberFormat('pt-BR', {
-
-            style: 'currency',
-            currency: 'BRL',
-        }).format(preco)
-    }
+    
 
     const closeModal = () => {
 
@@ -122,7 +132,7 @@ const FoodCartList = ({ items }: Props) => {
                                 <h2>{modal.nome}</h2>   
                                 <p>{modal.descricao}</p>
                                 <span>Serve {modal.porcao}</span>
-                                <Button>
+                                <Button onClick={() => AddToCart(modal)}>
                                     Adicionar ao carrinho - {formatBRL(modal.preco)}
                                 </Button>
 

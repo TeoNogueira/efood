@@ -2,15 +2,15 @@ import {Container, List} from './styles'
 
 // import Efood from '../../models/Efood'
 import FoodInit from '../FoodInit/Index'
-import { FoodItems } from '../../pages/Home/Index'
+import { FoodInfos } from '../../pages/Home/Index'
 
 
 type Props = {
-    foodClass: FoodItems[]
+    foodClass: FoodInfos[]
 }
 
 const FoodList= ({ foodClass }: Props) => {
-    const getTags = (efood: FoodItems) => {
+    const getTags = (efood: FoodInfos) => {
 
         const tags = []
 

@@ -1,4 +1,4 @@
-import { createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
     bgColor: '#fff8f2',
@@ -7,6 +7,12 @@ export const colors = {
     rLight: '#ffebd9',
 }
 
+export const breakpoints = {
+
+    desktop: '1024px',
+    tablet: '768px',
+    mobile: '425px'
+}
 
 export const GlobalCss = createGlobalStyle`
 * {
@@ -30,5 +36,10 @@ body {
     width: 100%;
     max-width: 1024px;
     margin: 0 auto;
+}
+
+@media (max-width: ${breakpoints.desktop}) {
+
+    max-width: 80%;
 }
 `

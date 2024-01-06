@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import banner from '../../assets/images/bg-dark.png'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.div`
         
@@ -21,6 +21,12 @@ export const DeepCont = styled.div`
         color: ${colors.white};
         padding: 24px 0;
         font-size: 32px;
+
+             
+    @media (max-width: ${breakpoints.desktop}) {
+
+        font-size: 24px;
+    }
 
         span {
             font-weight: 100;

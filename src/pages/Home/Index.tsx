@@ -3,8 +3,7 @@ import HeaderInit from '../../components/HeaderInit/Index'
 import FoodList from '../../components/FoodList/Index'
 import Footer from '../../components/Footer/Index'
 
-import { useEffect, useState } from 'react'
-
+import { useGetRestaurantsQuery } from '../../services/api'
 
 export interface MenuItems {
     id: number
@@ -16,8 +15,7 @@ export interface MenuItems {
 
 }
 
-
-export type FoodItems = {
+export type FoodInfos = {
 
     id: number
     titulo: string
@@ -31,24 +29,21 @@ export type FoodItems = {
 
 const Home = () => {
 
-    const [foodItems, setFoodItems] = useState<FoodItems[]>([])
+    const { data: FoodItems } = useGetRestaurantsQuery()
 
-    useEffect(() =>
-    {   
-        fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-        .then((res) => res.json())
-        .then((res) => setFoodItems(res))
-
-    }, [])
-
-return(
-
-    <>
-    <HeaderInit />
-    <FoodList foodClass={foodItems} />
-    <Footer />
-    </>
- )
+    if (FoodItems) {
+ 
+     return (
+         <>
+         <HeaderInit />
+         <FoodList foodClass={FoodItems}/>
+         <Footer />
+         </>
+     )
+ 
+    }
+ 
+    return <h4>carregando...</h4>
 }
 
 export default Home

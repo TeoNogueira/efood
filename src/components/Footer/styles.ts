@@ -13,8 +13,10 @@ export const Container = styled.div`
 `
 
 export const TextSmall = styled.p`
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
+    max-width: 800px;
+    
 
 `
 
