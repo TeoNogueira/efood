@@ -1,4 +1,3 @@
-import { FoodInfos } from '../../pages/Home/Index'
 import {Container, DeepCont, TextBanner} from './styles'
 
 type Props = {

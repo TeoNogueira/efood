@@ -1,14 +1,14 @@
 import Footer from '../../components/Footer/Index'
-
-import Cart from '../../components/Cart/Index'
-
 import { useGetRestaurantsIdQuery } from '../../services/api'
+
+
 
 import { useParams } from 'react-router-dom'
 
 import HeaderProducts from '../../components/HeaderProducts/Index'
 import Banner from '../../components/Banner/Index'
 import FoodCartList from '../../components/FoodCartList/Index'
+import Checkout from '../Checkout/Index'
 
 // import { FoodInfos } from '../Home/Index'
 
@@ -45,7 +45,7 @@ const Products = () => {
             />
             <FoodCartList items={menu.cardapio} />
             <Footer />
-            <Cart />
+            <Checkout />
             </>
  
     )

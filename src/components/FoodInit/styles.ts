@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import { colors } from '../../styles'
-import { ButtonLink } from '../Link/styles'
 import { TagCont } from '../Tag/styles';
+import { Link } from 'react-router-dom';
 
 
 export const Container = styled.section`
@@ -20,13 +20,6 @@ export const Container = styled.section`
         }
 
 
-        ${ButtonLink} {
-                position: relative;
-                top: 2px;
-                text-decoration: none;
-                
-        }
-
         ${TagCont} {
 
                 margin-left: 16px;
@@ -43,7 +36,7 @@ export const InfoContainer = styled.div`
                 width: 456px;
                 font-size: 14px;
                 font-weight: 400;
-                padding-bottom: 16px;
+                margin-bottom: 32px;
         }
 `
 
@@ -66,4 +59,19 @@ export const RankContainer = styled.div`
         display: flex;
         align-items: center;
         gap: 8px;
+`
+
+export const ButtonLink = styled(Link)`
+
+        position: absolute;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 4px 6px;
+        bottom: 8px;
+        left: 8px;
+        color: ${colors.rLight};
+        background-color: ${colors.rDark};
+        cursor: pointer;
+
+
 `

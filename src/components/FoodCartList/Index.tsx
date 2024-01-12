@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import buttonClose from '../../assets/images/close.png'
-import { MenuItems } from '../../pages/Home/Index'
 
 import { useDispatch } from 'react-redux'
 

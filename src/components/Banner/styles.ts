@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import banner from '../../assets/images/bg-dark.png'
 import { breakpoints, colors } from '../../styles'
 
 export const Container = styled.div`
@@ -8,8 +7,23 @@ export const Container = styled.div`
         margin-bottom: 56px;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url(${banner});
         background-size: cover;
+        display: block;
+        position: relative;
+        height: 280px;
+        width: 100%;
+
+        &::after {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            content: '';
+
+        }
+        
 
 `
 

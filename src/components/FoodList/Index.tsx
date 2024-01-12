@@ -2,8 +2,6 @@ import {Container, List} from './styles'
 
 // import Efood from '../../models/Efood'
 import FoodInit from '../FoodInit/Index'
-import { FoodInfos } from '../../pages/Home/Index'
-
 
 type Props = {
     foodClass: FoodInfos[]

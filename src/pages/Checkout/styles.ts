@@ -4,6 +4,10 @@ import { colors, breakpoints } from '../../styles'
 
 import trash from '../../assets/images/trash.png'
 
+type PropsMargin = {
+
+    marginTop?: string
+}
 
 export const CartContainer = styled.div`
 
@@ -86,7 +90,26 @@ position: relative;
     }
 
 `
-export const Button = styled.button`
+
+export const ItemContent = styled.div`
+    display: block;
+
+    &.is-visible {
+        display: none;
+    }
+
+`
+export const TextOrder = styled.p`
+    span {
+        font-size: 14px;
+        display: block;
+        padding: 12px; 0;
+        line-height: 22px;
+    }
+
+`
+
+export const Button = styled.button<PropsMargin>`
 
     width: 100%;
     padding: 4px;
@@ -95,9 +118,78 @@ export const Button = styled.button`
     color: ${colors.rDark};
     border: none;
     cursor: pointer;
-
+    margin-top: ${(props) => (props.marginTop ? '24px' : '')};
 
 `
+export const ButtonContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 28px;
+
+`
+
+export const FormContainer = styled.div`
+
+    color: ${colors.white};
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+
+    label,
+    input {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+
+        &.error {
+            border: 2px; solid red;
+
+        }
+    }
+
+    input {
+
+        margin: 8px 0;
+        padding: left: 8px;
+        height: 32px;
+        border: 1px solid ${colors.rDark};
+
+        &.cvv {
+            width: 87px;
+            max-width: 100%;
+        }
+        &.cardNum {
+            width: 228px;
+            max-width: 100%;
+        }
+    }
+
+    > div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        margin-bottom: 8px;
+
+    }
+
+    &.is-visible {
+        display: none;
+    }
+
+    h2 {
+        font-weight: bold;
+        margin-bottom: 16px;
+        font-size: 16px;
+    }
+    
+`
+
 export const Overlay = styled.div`
     
 position: absolute;

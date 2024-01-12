@@ -7,11 +7,11 @@ import {
     InfoContainer,
     TagContent,
     TitleContent,
-    RankContainer
+    RankContainer,
+    ButtonLink
    } from './styles'
 
    import ImgStar from '../../assets/images/icones/star.png'
-import { ButtonLink } from '../Link/styles'
 
 type Props = {
     id: number
