@@ -11,10 +11,10 @@ export const Button = styled.button`
         color: ${colors.rDark};
         background-color: ${colors.rLight};
         border: none;
-        margin: 16px;
+        margin: 8px;
         bottom: 0;
-        left: 0;
-        max-width: 90%;
+        left: 1.5px;
+        max-width: 94%;
    
         &:hover {
                 cursor: pointer;

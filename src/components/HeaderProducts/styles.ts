@@ -28,6 +28,12 @@ export const DeepCont = styled.div`
         }
 `
 
+export const LinkHome = styled(Link)`
+
+        text-decoration: none;
+
+`
+
 export const LinkHeader = styled.h2`
 
         margin-right: 80px;
@@ -38,6 +44,9 @@ export const LinkHeader = styled.h2`
                 margin: 0 auto;
         }
 `
+
+
+
 
 export const LinkLogo = styled(Link)`
 

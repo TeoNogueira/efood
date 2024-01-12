@@ -2,7 +2,7 @@ import { useDispatch, useSelector} from 'react-redux'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
 
-import {Container, DeepCont, LinkLogo, LinkHeader, CartButton} from './styles'
+import {Container, DeepCont, LinkLogo, LinkHeader, CartButton, LinkHome, } from './styles'
 
 import logo from '../../assets/images/logo.png'
 
@@ -21,7 +21,10 @@ const HeaderProducts = () => {
     return (
         <Container>
             <DeepCont className="container">
+                <LinkHome to={'/'} >
                 <LinkHeader>Restaurantes</LinkHeader>
+                </LinkHome>
+                
                 <LinkLogo to={'/'}>
                     <img src={logo} alt="Logo" />
                 </LinkLogo>

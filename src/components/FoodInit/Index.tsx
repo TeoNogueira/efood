@@ -47,7 +47,7 @@ const FoodInit = ({
                     </RankContainer>
                 </TitleContent>
                 <p>{description}</p>
-                <ButtonLink to={`products/${id}`} > Saiba Mais </ButtonLink>
+                <ButtonLink to={`products/${id}`} > Saiba mais </ButtonLink>
             </InfoContainer>
         </Container>
     )

@@ -7,5 +7,10 @@ export const TagCont = styled.div`
     padding: 6px 4px;
     color: ${colors.white};
     font-weight: bold;
-    background-color: ${colors.rDark};    
+    background-color: ${colors.rDark}; 
+    
+
+    &:first-letter {
+        text-transform: uppercase;
+}
 `

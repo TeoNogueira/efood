@@ -21,7 +21,7 @@ export const Container = styled.div`
             left: 0;
             background-color: rgba(0, 0, 0, 0.7);
             content: '';
-
+            
         }
         
 
@@ -35,7 +35,14 @@ export const DeepCont = styled.div`
         color: ${colors.white};
         padding: 24px 0;
         font-size: 32px;
+        
+        span {
+            z-index: 1;
 
+            &:first-letter {
+                text-transform: uppercase;
+            }
+        }
              
     @media (max-width: ${breakpoints.desktop}) {
 
@@ -49,4 +56,5 @@ export const DeepCont = styled.div`
 
 export const TextBanner = styled.h3`
             font-weight: 900;
+            z-index: 1;
 `

@@ -4,11 +4,11 @@ import { colors } from '../../styles'
 import { TagCont } from '../Tag/styles';
 import { Link } from 'react-router-dom';
 
-
+// Cards
 export const Container = styled.section`
         width: 100%;
         max-width: 472px;
-        background-color: transparent;
+        background-color: ${colors.white};
         border: 1px solid ${colors.rDark};
         position: relative;
         border-top: none;
@@ -22,7 +22,7 @@ export const Container = styled.section`
 
         ${TagCont} {
 
-                margin-left: 16px;
+                margin-left: 8px;
         }
 
 `
@@ -43,7 +43,8 @@ export const InfoContainer = styled.div`
 export const TagContent = styled.div`
         position: absolute;
         top: 16px;
-        right: 16px;        
+        right: 16px;
+     
 `
 
 export const TitleContent = styled.div`
@@ -65,7 +66,8 @@ export const ButtonLink = styled(Link)`
 
         position: absolute;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 700;
+        font-size: 14px;
         padding: 4px 6px;
         bottom: 8px;
         left: 8px;
