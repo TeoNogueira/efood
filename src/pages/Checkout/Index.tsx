@@ -90,8 +90,8 @@ const Checkout = () => {
         .min(3, 'O campo precisa ter no minimo 3 caracteres')
         .required('O campo é obrigatório'),
         cep: Yup.string()
-        .min(14, 'O campo precisa ter no minimo 14 caracteres')
-        .max(14, 'O campo precisa ter no minimo 14 caracteres')
+        .min(8, 'O campo precisa ter no minimo 8 caracteres')
+        .max(8, 'O campo precisa ter no minimo 8 caracteres')
         .required('O campo é obrigatório'),
         numberAddress: Yup.string().required('O campo é obrigatório'),
         cardName: Yup.string().required('O campo é obrigatório'),
