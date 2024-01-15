@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-// import { FoodInfos } from '../pages/Home/Index'
-
 
 type Product = {
 

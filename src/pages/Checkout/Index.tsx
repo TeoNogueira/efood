@@ -90,8 +90,8 @@ const Checkout = () => {
         .min(3, 'O campo precisa ter no minimo 3 caracteres')
         .required('O campo é obrigatório'),
         cep: Yup.string()
-        .min(8, 'O campo precisa ter no minimo 8 caracteres')
-        .max(8, 'O campo precisa ter no minimo 8 caracteres')
+        .min(9, 'O campo precisa ter no minimo 9 caracteres')
+        .max(9, 'O campo precisa ter no maximo 9 caracteres')
         .required('O campo é obrigatório'),
         numberAddress: Yup.string().required('O campo é obrigatório'),
         cardName: Yup.string().required('O campo é obrigatório'),
@@ -102,8 +102,8 @@ const Checkout = () => {
         .required('O campo é obrigatório'),
         expiresMonth: Yup.string().required('O campo é obrigatório'),
         expiresYear: Yup.string().required('O campo é obrigatório'),
-        complement: Yup.string().min( 3,
-            'O campo precisa ter 3 caracteres no mínimo'
+        complement: Yup.string().min( 1,
+            'O campo precisa ter 1 caractere no mínimo'
             
             )
         }),
@@ -150,8 +150,8 @@ const Checkout = () => {
         return hasError
     }
 
-    useEffect(() =>{
-        if(isSuccess) {
+    useEffect(() => {
+        if (isSuccess) {
             dispatch(clearCart())
         }
 }, [dispatch, isSuccess])
@@ -198,7 +198,7 @@ const Checkout = () => {
                                     <div>
                                         <h3>{item.nome}</h3>
                                         <span>{formatBRL(item.preco)}</span>
-                                    </div>/
+                                    </div>
                                     <button onClick={() => removeItemCart(item.id)} />
                                 </S.CartItem>
 
