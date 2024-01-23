@@ -27,6 +27,29 @@ const Checkout = () => {
 
         const [compraValida, setCompraValida] = useState(false)
 
+        const apenasLetras = (value: string) => {
+
+            const recebeRegex = value.replace(/[^a-zA-Z\s']/g, '')
+
+            if(value !== recebeRegex) {
+
+                alert('Por favor, digite apenas letras no campo')
+            }
+            return recebeRegex
+        }
+        const apenasNumeros = (value: string) => {
+
+            const recebeRegex = value.replace(/\D/g, '')
+
+            if(value !== recebeRegex) {
+
+                alert('Por favor, digite apenas Números no campo')
+            }
+            return recebeRegex
+        }
+
+    
+
 
         const closeCart = () => {
             dispatch(close())
@@ -93,7 +116,7 @@ const Checkout = () => {
         .min(9, 'O campo precisa ter no minimo 9 caracteres')
         .max(9, 'O campo precisa ter no maximo 9 caracteres')
         .required('O campo é obrigatório'),
-        numberAddress: Yup.string().required('O campo é obrigatório'),
+        numberAddress: Yup.string().matches(/^\d+$/, 'Por favor, digite um endereço válido').required('O campo é obrigatório'),
         cardName: Yup.string().required('O campo é obrigatório'),
         cardNumber: Yup.string().required('O campo é obrigatório'),
         cvv: Yup.string()
@@ -223,7 +246,7 @@ const Checkout = () => {
                     <form onSubmit={form.handleSubmit}>
 
                         {compraValida && (
-
+                                
                                 <S.FormContainer className={continueToPay ? 'is-visible' : ''} >
                                     <h2>Entrega</h2>
                                     <label htmlFor="receiver">Quem irá receber</label>
@@ -231,8 +254,12 @@ const Checkout = () => {
                                      type="text"
                                      id="receiver"
                                      name="receiver"
-                                     value={form.values.receiver}
-                                     onChange={form.handleChange}
+                                     value={apenasLetras(form.values.receiver)}
+                                     onChange={(e) => {
+                                       
+                                        form.setFieldValue('receiver', apenasLetras(e.target.value) )
+
+                                     }}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('receiver') ? 'error' : ''}
                                     />
@@ -242,7 +269,7 @@ const Checkout = () => {
                                      id="address"
                                      name="address"
                                      value={form.values.address}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('address', apenasLetras(e.target.value))}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('address') ? 'error' : ''}
                                     />
@@ -252,7 +279,7 @@ const Checkout = () => {
                                      id="city"
                                      name="city"
                                      value={form.values.city}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('city', apenasLetras(e.target.value))}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('city') ? 'error' : ''}
                                     />
@@ -265,7 +292,7 @@ const Checkout = () => {
                                      id="cep"
                                      name="cep"
                                      value={form.values.cep}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('cep', e.target.value)}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('cep') ? 'error' : ''}
                                     />
@@ -277,7 +304,7 @@ const Checkout = () => {
                                      id="numberAddress"
                                      name="numberAddress"
                                      value={form.values.numberAddress}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('numberAddress', apenasNumeros(e.target.value))}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('numberAddress') ? 'error' : ''}
                                     />
@@ -289,13 +316,27 @@ const Checkout = () => {
                                      id="complement"
                                      name="complement"
                                      value={form.values.complement}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('complement', e.target.value)}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('complement') ? 'error' : ''}
                                     />
                                     <S.Button
                                     type="button"
-                                    onClick={() => setContinueToPay(true)}
+                                    onClick={() => {
+                                            const enderecoPreenchido = 
+                                            form.values.receiver &&
+                                            form.values.address &&
+                                            form.values.city &&
+                                            form.values.cep &&
+                                            form.values.numberAddress
+                                            if(!enderecoPreenchido) {
+                                                alert('Por favor, preencha todos os campos para continuar seu pedido!')
+                                                return
+                                            } 
+
+                                            setContinueToPay(true)
+
+                                    }}
                                     marginTop="24px"
                                     >
                                         Continuar com o pagamento
@@ -320,7 +361,7 @@ const Checkout = () => {
                                      id="cardName"
                                      name="cardName"
                                      value={form.values.cardName}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('cardName', apenasLetras(e.target.value))}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('cardName') ? 'error' : ''}
                                     />
@@ -333,7 +374,7 @@ const Checkout = () => {
                                      id="cardNumber"
                                      name="cardNumber"
                                      value={form.values.cardNumber}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('cardNumber', e.target.value)}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('cardNumber') ? 'error cardNum' : 'cardNum'}
                                     />
@@ -346,7 +387,7 @@ const Checkout = () => {
                                      id="cvv"
                                      name="cvv"
                                      value={form.values.cvv}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('cvv', e.target.value)}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('cvv') ? 'error cvv' : 'cvv'}
                                     />
@@ -358,10 +399,12 @@ const Checkout = () => {
                                     <InputMask
                                     mask="99"
                                      type="text"
+                                     min="01"
+                                     max="12"
                                      id="expiresMonth"
                                      name="expiresMonth"
                                      value={form.values.expiresMonth}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('expiresMonth', e.target.value)}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('expiresMonth') ? 'error' : ''}
                                     />
@@ -374,13 +417,27 @@ const Checkout = () => {
                                      id="expiresYear"
                                      name="expiresYear"
                                      value={form.values.expiresYear}
-                                     onChange={form.handleChange}
+                                     onChange={(e) => form.setFieldValue('expiresYear', e.target.value)}
                                      onBlur={form.handleBlur}
                                      className={checkInputHasError('expiresYear') ? 'error' : ''}
                                     />
                                         </div>
                                     </div>
-                                    <S.Button type="submit" marginTop="24px">
+                                    <S.Button type="submit" onClick={() => {
+                                            const enderecoPreenchido = 
+                                            form.values.cardName &&
+                                            form.values.cardNumber &&
+                                            form.values.cvv &&
+                                            form.values.expiresMonth &&
+                                            form.values.expiresYear
+                                            if(!enderecoPreenchido) {
+                                                alert('Por favor, preencha todos os campos para continuar seu pedido!')
+                                                return
+                                            } 
+
+                                            setContinueToPay(true)
+
+                                    }}marginTop="24px" >
                                      {isLoading
                                      ? 'Finalizando Pagamento...'
                                      : 'Finalizar Pagamento'

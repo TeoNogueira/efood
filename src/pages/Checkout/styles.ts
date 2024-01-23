@@ -32,6 +32,7 @@ export const SideBar = styled.aside`
     max-width: 360px;
     z-index: 1;
     padding: 32px 8px 0;
+   
 
          
     @media (max-width: ${breakpoints.desktop}) {
@@ -44,10 +45,14 @@ export const PriceCont = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     margin: 40px 0 16px;
     color: ${colors.rLight};
     font-weight: bold;
     font-size: 14px;
+
+    
+   
 
 `
 export const CartItem = styled.li`
@@ -92,11 +97,39 @@ position: relative;
 `
 
 export const ItemContent = styled.div`
+
     display: block;
+  
+    ::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #d3d3d2;
+      }
+    ul {
+      
+        max-height: 500px;
+        overflow-y: auto;
+        margin-bottom: -22px;
+       
+    }
 
     &.is-visible {
         display: none;
     }
+
+    @media (max-width: ${breakpoints.tablet}) {
+         
+    ul {
+      
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: -22px;
+    }
+
+}
+
 
 `
 export const TextOrder = styled.p`
