@@ -43,7 +43,7 @@ const Checkout = () => {
 
             if(value !== recebeRegex) {
 
-                alert('Por favor, digite apenas Números no campo')
+                alert('Por favor, digite apenas números no campo')
             }
             return recebeRegex
         }
